@@ -11,3 +11,16 @@
     var span = $(this).find('.glyphicon');
     span.toggleClass('glyphicon-menu-up glyphicon-menu-down');
   });
+
+
+
+
+window.addEventListener("load", () => {
+  const loader = document.querySelector(".loader");
+
+  loader.classList.add("loader--hidden");
+
+  loader.addEventListener("transitionend", () => {
+    document.body.removeChild(loader);
+  });
+});
