@@ -449,37 +449,6 @@ if (document.location.protocol === 'https:' && '//pub.adserver.mobi/GPjJJgfP?&se
 <script src="https://www.robotapk.com/public/theme/lib/sticky/jquery.sticky.js"></script>
 <!-- Js Common -->
 <script src="https://www.robotapk.com/public/theme/js/common.js"></script>
-<script type='text/javascript'>
-    $(document).ready(function () {
-        var _token = $('input[name="_token"]').val();
-        load_data('footer', 'game', _token);
-        load_data('footer', 'app', _token);
-        load_data('top', 'game', _token);
-        load_data('top', 'app', _token);
-        load_data('categories', 'game', _token);
-        load_data('categories', 'app', _token);
 
-        function load_data(key = "", val = '', _token) {
-            $('#' + key + val).html('loading...');
-            $.ajax({
-                url: "https://www.robotapk.com/getData",
-                method: "POST",
-                data: {key: key, val: val, _token: _token},
-                success: function (data) {
-                    $('#' + key + val).html(data);
-                }
-            })
-        }
-    });
-</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQPL1GBW9C"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BQPL1GBW9C');
-</script>
 </body>
 </html>
