@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet1" type="text/css"></link>
+  <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet1"></link>
+<script type="text/javascript" src="https://cdn.bitmovin.com/player/web/8.0.1/bitmovinplayer.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+/*start HideBitmovinLogo*/
+.bmpui-ui-watermark {
+  display: none;
+}
+/*end HideBitmovinLogo*/
+@media (min-width: 991px) {
+    .code-block {
+        float: right;
+    }
+
+    .info-block {
+        float: left;
+    }
+}
+
+.button-container {
+    margin-bottom: 25px;
+}
+
+.button-container .channel-button {
+    width: 96%;
+    height: 3em;
+    background-color: #9932CC;
+    border: 0;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.1em;
+    background-size: 55px 55px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.button-container .channel-button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+th, td {
+    align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+  
+</style>
+</head>
+
+<body>
+
+<div style="overflow-x:auto;">
+  <table>
+    <tr>
+      
+      <th>LIVE</th>
+      <th>LIVE</th>
+      
+    </tr>
+    <tr>
+    <tr>
+      <th>
+            <div id="player" class="tv-frame">
+                <div id="player-container"></div>
+            </div>
+       <div class="col-md-4">
+            <div class="row button-container">
+                <div class="col-md-12">
+                    <span id="switch-time">YOAMMEDIA PLAY LIVE TV</span>
+                </div>
+         </div>
+    </div>
+        </th>
+    
+      
+      
+      
+      <th>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("button").click(function(){
+        $("div").scrollTop(1000);
+    });
+});
+</script>
+<div style=" transparent;height:350px;overflow:auto;">
+<div class="separator" style="clear: both; text-align: left;">
+
+        <div class="col-md-4">
+            <div class="row button-container">
+                
+                <div class="col-md-12">
+                    <button class="channel-button btn btn-success" id="ch1" type="button"
+                            onclick="switchChannel('1', event)">ttt<span class="timer"></span></button>
+                </div>
+                <div class="col-md-12">
+                    <button class="channel-button btn btn-warning" id="ch2" type="button"
+                            onclick="switchChannel('2', event)">ANTENA I<span class="timer"></span></button>
+                </div>
+                <div class="col-md-12">
+                    <button class="channel-button btn btn-primary" id="ch3" type="button"
+                            onclick="switchChannel('3', event)">PRO TV I<span class="timer"></span></button>
+                </div>
+              <div class="col-md-12">
+                    <button class="channel-button btn btn-success" id="ch4" type="button"
+                            onclick="switchChannel('4', event)">AGRO TV<span class="timer"></span></button>
+                </div>
+  <div class="col-md-12">
+                    <button class="channel-button btn btn-success" id="ch4" type="button"
+                            onclick="switchChannel('5', event)"> TVR 1<span class="timer"></span></button>
+                </div>            
+<div class="col-md-12">
+                    <button class="channel-button btn btn-success" id="ch4" type="button"
+                            onclick="switchChannel('6', event)">TVR 2<span class="timer"></span></button>
+                </div>              
+<div class="col-md-12">
+                    <button class="channel-button btn btn-success" id="ch4" type="button"
+                            onclick="switchChannel('7', event)">TVR 3<span class="timer"></span></button>
+                </div>              
+              
+            </div>
+  </div>
+  </div></th>
+    </tr>
+    
+    
+    
+  </table>
+</div>
+<script type="text/javascript">
+var timerEl, timer, interval, timeout, player, clickTime, switchTime;
+var delayTime = 0;
+
+var conf = {
+  key: 'b16b21bc-09e5-4690-bd5f-9bf2b0492f0a',
+  playback: {
+    autoplay: true,
+    muted: true
+  },
+  events: {
+    timechanged: onTimeChanged
+  }
+};
+
+function resetButtons() {
+  var container = document.querySelector('.button-container');
+  var buttons = container.getElementsByTagName('button');
+
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].removeAttribute('disabled');
+    var info = buttons[i].querySelector('.timer');
+    if (info) {
+      info.innerText = '';
+    }
+  }
+}
+
+function updateTimer(time) {
+  if (!timerEl) {
+    return;
+  }
+
+  timer = time;
+  timerEl.innerText = ' (' + time + ')';
+}
+
+function resetTimer() {
+  if (!timerEl) {
+    return;
+  }
+
+  timer = null;
+  timerEl.innerText = '';
+  timerEl = null;
+}
+
+function disableButton() {
+  if (!timerEl) {
+    return;
+  }
+
+  timerEl.parentElement.setAttribute('disabled', 'disabled');
+  resetTimer();
+}
+
+function onTimeChanged() {
+  if (!clickTime || switchTime) {
+    return;
+  }
+
+  switchTime = Date.now();
+  var diffTime = switchTime - clickTime - delayTime;
+  var diffEl = document.getElementById('switch-time');
+  diffEl.innerText = 'Channel loaded after ' + " " + diffTime + " " + 'ms' + "." + " " + "Enjoy and don't forget to share !";
+}
+
+function resetDiff() {
+  document.getElementById('switch-time').innerHTML = 'Waiting for channel...';
+  clickTime = null;
+  switchTime = null;
+}
+
+function switchChannel(channelID, event) {
+  var delay = 0;
+
+  resetButtons();
+
+  if (event) {
+    player.pause();
+    resetDiff();
+    clickTime = Date.now();
+  }
+
+  if (event && event.target) {
+    timerEl = event.target.querySelector('.timer');
+  }
+
+  if (delayTime > 0 && timerEl) {
+    updateTimer(delayTime / 1000);
+    delay = delayTime;
+
+    clearInterval(interval);
+    interval = setInterval(function () {
+      updateTimer(--timer);
+    }, 1000);
+  }
+
+  clearTimeout(timeout);
+  timeout = setTimeout(function () {
+    disableButton();
+
+    var source;
+    if (channelID === '1') {
+      source = {
+        title: 'ttt',
+        description: 'TVR I is offered by YOAMMEDIA IPTV',
+        dash: '',
+        hls: 'https://alt.xtream-ie.org/r8E7WzEjY/LLJwdV9mB/7eyJ1cmwiOiJodHRwOi8vaHcxLmplbXR2LmNvbS9hcHAvQVRWSEQvcGxheWxpc3QubTN1OCIsImlkIjozNzAzfQ%3D%3D/fast'
+      }
+    } else if (channelID === '2') {
+      source = {
+        title: 'ggg',
+        description: 'ANTENA I is offered by YOAMMEDIA IPTV',
+        dash: '',
+        hls: 'https://d201h06fdwdct7.cloudfront.net/antenainternational/ngrp:stream_all/chunklist_b946000.m3u8'
+      };
+    } else if (channelID === '3') {
+      source = {
+        title: 'PRO TV I',
+        description: 'PRO TV I is offered by YOAMMEDIA IPTV',
+        dash: '',
+        hls: 'https://d201h06fdwdct7.cloudfront.net/w2_protv/ngrp:stream_all/chunklist_b1396000.m3u8'
+      };
+ } else if (channelID === '4') {
+      source = {
+        title: 'AGRO TV',
+        description: 'AGRO TV is offered by YOAMMEDIA IPTV',
+        dash: '',
+        hls: 'https://d201h06fdwdct7.cloudfront.net/agrotv/ngrp:stream_all/chunklist_b946000.m3u8'
+      };
+   } else if (channelID === '5') {
+      source = {
+        title: 'TVR 1',
+        description: 'TVR 1 is offered by YOAMMEDIA IPTV',
+        dash: '',
+        hls: 'http://89.136.209.26:1935/liveedge/TVR1.stream/playlist.m3u8'
+      };
+    } else if (channelID === '6') {
+      source = {
+        title: 'TVR 2',
+        description: 'TVR 2 is offered by YOAMMEDIA IPTV',
+        dash: '',
+        hls: 'http://89.136.209.26:1935/liveedge/TVR2.stream/playlist.m3u8'
+      };  
+      } else if (channelID === '7') {
+      source = {
+        title: 'TVR 3',
+        description: 'TVR 3 is offered by YOAMMEDIA IPTV',
+        dash: '',
+        hls: 'http://s1.electru.biz:8080/live/nick1/nick1/84703.m3u8'
+      };  
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    }
+      else {
+      source = {
+        title: 'X',
+        description: 'X is offered by YOAMMEDIA IPTV',
+        dash: '',
+        hls: 'xxx'
+      }
+    }
+    player.load(source);
+  }, delay);
+}
+
+(function () {
+  var playerContainer = document.getElementById('player-container');
+  player = new bitmovin.player.Player(playerContainer, conf);
+
+  switchChannel('1');
+})();
+
+</script>
+</body>
+</html>
+

@@ -1,0 +1,343 @@
+html, body {
+   
+    font-family: 'Days One', sans-serif;
+    overflow:visible;
+    padding: 0;
+    margin: 0;
+width: 100%;
+    height: 100%;
+}
+
+body {
+background-image:url(http://45.55.43.127/wp-content/uploads/2013/11/plants-vs-zombies-garden-warfare-2013-Game-hd-wallpaper-1024x576.jpg);
+background-size:100% 100%;
+background-attachment:fixed;
+}
+
+a {
+
+    -webkit-transition: all 250ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    -moz-transition: all 250ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    -ms-transition: all 250ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    -o-transition: all 250ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    transition: all 250ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+
+    text-decoration: none;
+}
+
+.header {
+
+    text-align: center;
+    position: absolute;
+    color: #333;
+    width: 100%;
+    top: 7%;
+}
+
+.header h1 {
+
+    letter-spacing: -1px;
+    text-shadow: -2px -1px 1px #fff, 1px 2px 2px rgba(0, 0, 0, 0.2);
+    font-weight: 300;
+    font-size: 36px;
+    margin: 0;
+}
+
+.header h2 {
+
+    text-transform: uppercase;
+    text-shadow: -2px -1px 1px #fff, 1px 1px 1px rgba(0, 0, 0, 0.15);
+    font-weight: 300;
+    font-size: 12px;
+    color: rgba(0,0,0,0.7);
+    margin: 0;
+}
+
+.demo:after {
+
+    box-shadow: 0 1px 16px rgba(0,0,0,0.15);
+    background: #1b1b1b;
+    position: absolute;
+    content: '';
+    height: 10px;
+    width: 100%;
+    top: 0%;
+}
+
+/* List styles */
+
+.list {
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    
+    text-transform: uppercase;
+    position: absolute;
+    margin-left: -140px;
+    margin-top: -280px;
+    top: 65%;
+}
+
+.list a {
+    
+    display: block;
+    color: #fff;
+}
+
+.list a:hover {
+    text-indent: 20px;
+}
+
+.list dt, .list dd {
+
+    text-indent: 10px;
+    line-height: 55px;
+    background: #E0FBAC;
+    margin: 0;
+    height: 55px;
+    width: 270px;
+    color: #fff;
+}
+
+.list dt {
+
+    /* Since we're hiding elements behind here, we need it in 3d */
+    -webkit-transform: translateZ(0.3px);
+    -moz-transform: translateZ(0.3px);
+    -ms-transform: translateZ(0.3px);
+    -o-transform: translateZ(0.3px);
+    transform: translateZ(0.3px);
+
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    font-size: 15px;
+}
+
+.list dd {
+
+    border-top: 1px dashed rgba(255,255,255,0.3);
+    line-height: 35px;
+    font-size: 11px;
+    height: 35px;
+    margin: 0;
+}
+
+/* UI */
+
+.toggle {
+
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    border-radius: 20px;
+
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    line-height: 50px;
+    margin-left: -70px;
+    margin-top: -20px;
+    background: #2b2b2b;
+    text-align: center;
+    font-size: 12px;
+    position: absolute;
+    height: 50px;
+    bottom: 1%;
+    width: 140px;
+    color: #fff;
+    left: 50%;
+    opacity: 30;
+}
+
+.toggle:hover {
+    
+    background: #E42692;
+}
+
+/* No CSS 3D support warning */
+.warning {
+
+    -webkit-transform: translateZ(2px);
+    -moz-transform: translateZ(2px);
+    -ms-transform: translateZ(2px);
+    -o-transform: translateZ(2px);
+    transform: translateZ(2px);
+
+    background: rgba(255,255,255,0.6);
+    position: fixed;
+    display: none;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.warning .message {
+
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    text-align: center;
+    margin-left: -150px;
+    margin-top: -60px;
+    line-height: 1.5;
+    background: #222;
+    font-size: 12px;
+    position: absolute;
+    padding: 10px;
+    width: 280px;
+    color: #fff;
+    left: 50%;
+    top: 50%;
+}
+
+.warning .message h1 {
+
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.warning .message a {
+
+    text-decoration: none;
+    color: #73C8A9;
+}
+
+/* Individual styles */
+
+.sashimi dt, .sashimi dd, .sashimi a { background: #73C8A9; }
+.nigiri dt, .nigiri dd, .nigiri a { background: #E32551; }
+.maki dt, .maki dd, .maki a { background: #FFC219; }
+
+.sashimi a:hover { background: #61c19e; }
+.nigiri a:hover { background: #d31b46; }
+.maki a:hover { background: #ffbb00; }
+
+.nigiri {
+
+    -webkit-transform: perspective(1200px) rotateY(40deg) !important;
+    -moz-transform: perspective(1200px) rotateY(40deg) !important;
+    -ms-transform: perspective(1200px) rotateY(40deg) !important;
+    -o-transform: perspective(1200px) rotateY(40deg) !important;
+    transform: perspective(1200px) rotateY(40deg) !important;
+
+    -webkit-transform-origin: 110% 25%;
+    -moz-transform-origin: 110% 25%;
+    -ms-transform-origin: 110% 25%;
+    -o-transform-origin: 110% 25%;
+    transform-origin: 110% 25%;
+
+    left: 20%;
+}
+
+.maki {
+
+    -webkit-transform: perspective(600px) translateZ(1px) !important;
+    -moz-transform: perspective(600px) translateZ(1px) !important;
+    -ms-transform: perspective(600px) translateZ(1px) !important;
+    -o-transform: perspective(600px) translateZ(1px) !important;
+    transform: perspective(600px) translateZ(1px) !important;
+
+    left: 50%;
+}
+
+.sashimi {
+
+    -webkit-transform: perspective(1200px) rotateY(-40deg) !important;
+    -moz-transform: perspective(1200px) rotateY(-40deg) !important;
+    -ms-transform: perspective(1200px) rotateY(-40deg) !important;
+    -o-transform: perspective(1200px) rotateY(-40deg) !important;
+    transform: perspective(1200px) rotateY(-40deg) !important;
+
+    -webkit-transform-origin: -10% 25%;
+    -moz-transform-origin: -10% 25%;
+    -ms-transform-origin: -10% 25%;
+    -o-transform-origin: -10% 25%;
+    transform-origin: -10% 25%;
+
+    left: 80%;
+}
+#barrahorizontal{
+position: absolute;
+overflow: hidden;
+width:100%;
+margin:auto;
+background-color:#66FF00;
+height:30px;
+border-radius:0px 0px 20px 20px;
+box-shadow:2px 0px 5px #000000 inset;
+position:relative;
+z-index:6;
+}
+
+img{
+padding:15px;
+-webkit-transition:background-color 0.3s;
+background-color:white;
+border-radius:10px 10px 10px 10px;
+-webkit-box-shadow:inset 0px 0px 10px #565656;
+margin:10px;
+}
+
+.zoom{
+transition: 0.5s ease;
+-moz-transition: 0.5s ease; /* Firefox */
+-webkit-transition: 0.5s ease; /* Chrome - Safari */
+-o-transition: 0.5s ease; /* Opera */
+	}
+
+img:hover{
+background-color:#7dfbff;
+}
+
+.zoom:hover{
+transform : scale(1.5);
+-moz-transform : scale(1.5); /* Firefox */
+-webkit-transform : scale(1.5); /* Chrome - Safari */
+-o-transform : scale(1.5); /* Opera */
+-ms-transform : scale(1.5); /* IE9 */
+	}
+#hoja{
+width:50%;
+margin:auto;
+margin-top:600px;
+background-color:#000000;
+height:50%;
+border-radius:20px 20px 20px 20px;
+box-shadow:2px 0px 5px #000000 inset;
+position:relative;
+z-index:6;
+}
+ #theVideo  
+   {
+        display:block;
+        position:absolute;
+width:675px;
+height:380px;
+        left:0px;
+        top:0%;
+        border: 2px solid black;
+        border-radius: 20px;  
+    }   
+    /* Light up the image as a button, change cursor */
+    #rotateVideo:hover
+    {
+        border:2px solid green;
+        cursor: pointer;                
+     }
+ <script>
+        //  When the HTML elements load, call init()
+        document.addEventListener("DOMContentLoaded", init, false);
+       
+        //  Rotate the video by 30degrees when image is clicked
+        function init() {
+          var video = document.getElementById("theVideo");
+          if (video) {
+            var rotateVal = 0;       //  Global variable to hold current rotation value
+            document.getElementById("rotateVideo").addEventListener("click", function () {
+              rotateVal = (rotateVal += 30) % 360;  // Calculate the next value, but keep between 0 and 360
+              var temp = "rotate(" + rotateVal + "deg)"; // Create a style string
+              document.getElementById("theVideo").style.msTransform = temp;  // Set the style
+            }, false);
+          }
+        }
+    </script>
