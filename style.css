@@ -1,59 +1,124 @@
 body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
   margin: 0;
-  background: linear-gradient(to bottom right, black, green);
-  background-size: cover; /* Ensures the gradient covers the entire body */
+  background: linear-gradient(45deg, #000, #340034);
+  color: #fff;
+}
+
+.time {
+  font-family: monospace;
+  font-size: 450%;
+  position: fixed;
+  background: black;
+  filter: blur(0px) contrast(5);
+  font-weight: 900;
+  padding: 10px;
+  right: 0;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+  margin: 70px;
+  border-top-left-radius: 30px;
+  transition: filter 2s ease;
+}
+
+li:hover {
+  line-height: 2.5em;
+  background: #000 !important;
+  transform: rotate(15deg);
+  padding: 15px;
+}
+
+li:nth-child(even):hover {
+  line-height: 2.5em;
+  background: #000 !important;
+  transform: rotate(-15deg);
+  padding: 15px;
+}
+
+.time:hover {
+  filter: blur(25px) contrast(5);
 }
 
 .container {
   text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-input[type="text"], button, input[type="datetime-local"] {
-  padding: 10px;
-  margin: 5px;
-  font-size: 16px;
-  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for inputs and buttons */
-  border: none;
-  border-radius: 5px;
+li:nth-child(1) {
+  background: red;
 }
 
-button {
-  cursor: pointer;
+li:nth-child(2) {
+  background: #7289da;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+li:nth-child(3) {
+  background: #0088cc;
+}
+
+li:nth-child(4) {
+  background: #3b5998;
+}
+
+li:nth-child(5) {
+  background: linear-gradient(#4285f4 0%, #34a853 33%, #fbbc05 66%, #ea4335 100%);
+}
+
+li:nth-child(6) {
+  background: linear-gradient(#4285f4 0%, #34a853 33%, #fbbc05 66%, #ea4335 100%);
+}
+
+li:nth-child(7) {
+  background: #1da1f2;
+}
+
+li:nth-child(8) {
+  background: #000000;
+}
+
+li:nth-child(9) {
+  background: #7bb32e;
+}
+
+li:nth-child(10) {
+  background: #00b2a9;
+}
+
+li:nth-child(11) {
+  background: #a02021;
 }
 
 li {
-  padding: 10px;
-  background-color: rgba(240, 240, 240, 0.8); /* Semi-transparent light gray background for task items */
-  margin: 5px;
-}
-
-.timestamp {
-  font-size: 12px;
-  color: #666;
-  margin-left: 10px;
-}
-
-.complete-button {
-  margin-left: 10px;
-  background-color: #3498db; /* Blue color for the Complete button */
+  float: left;
+  width: 8em;
+  transition: all 1s;
+  height: 8em;
+  margin: 1em;
+  padding: 1em;
+  border-radius: 25px;
   color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
+  text-align: center;
+  line-height: 6em;
+  font-size: 150%;
+  list-style: none;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.56), 0 10px 20px 0 rgba(0, 0, 0, 0.56);
+}
+li a {
+  color: white;
+  font-size: 350%;
+  width: 100%;
+  height: 100%;
 }
 
-.complete-button:disabled {
-  background-color: #ccc; /* Light gray color for disabled Complete button */
-  cursor: not-allowed;
+ul {
+  list-style: none;
+  margin: 1em auto;
+  padding: 0;
+  width: 50em;
 }
