@@ -112,14 +112,14 @@ a {
     transform: translateZ(0.3px);
 
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    font-size: 15px;
+    font-size: 25px;
 }
 
 .list dd {
 
     border-top: 1px dashed rgba(255,255,255,0.3);
     line-height: 35px;
-    font-size: 11px;
+    font-size: 20px;
     height: 35px;
     margin: 0;
 }
@@ -141,7 +141,7 @@ a {
     font-size: 12px;
     position: absolute;
     height: 50px;
-    bottom: 1%;
+    bottom: -70%;
     width: 140px;
     color: #fff;
     left: 50%;
