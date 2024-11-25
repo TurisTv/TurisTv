@@ -1,0 +1,47 @@
+body {
+  background: #000;
+  overflow: hidden;
+}
+
+svg {
+  overflow: visible !important;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
+  animation: rotate 60s linear infinite;
+}
+
+path {
+  stroke: #fff;
+  stroke-width: 2px;
+  fill: none;
+  animation: rainbow 30s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes rainbow {
+  0% {
+    stroke: #ff8080;
+  }
+  33% {
+    stroke: #80ff80;
+  }
+  66% {
+    stroke: #8080ff;
+  }
+  100% {
+    stroke: #ff8080;
+  }
+}
