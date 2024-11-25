@@ -1,4 +1,6 @@
 .campaign-banner {
+display: flex;
+flex-direction: column;
 	background: Black;
 	border-radius: 9px;
 	color: white;
